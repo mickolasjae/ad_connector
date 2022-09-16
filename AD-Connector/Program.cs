@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
@@ -105,7 +105,8 @@ namespace AD_Connector
         {
             try
             {
-                var response = await Client.PostAsync("https://ooo.workflows.oktapreview.com/api/flo/9c2f5ed8f45e991d0adb014e843df3f9/invoke?clientToken=1150564aa25beed830702d18bced389629b6c1ee81900de3c7b4cd8416c5ee94", eventProperties);
+                var WorkflowsApiEndpoint = "";
+                var response = await Client.PostAsync(WorkflowsApiEndpoint, eventProperties);
                 response.EnsureSuccessStatusCode();
                 var responseBody = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(responseBody);
